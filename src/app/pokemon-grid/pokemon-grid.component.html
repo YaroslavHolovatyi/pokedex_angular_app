@@ -1,0 +1,72 @@
+<!-- Creating markup -->
+<div class="pokemon-main">
+    <div class="pokemon-grid">
+        <div 
+        class="pokemon-box {{ pokemon.types[0].type.name }}"
+        *ngFor="let pokemon of pokemons | paginate: {itemsPerPage : 12, currentPage : page, totalItems : totalPokemons}"
+        (click)="getSpec(this.pokemon)"
+        >
+            <img [src]="pokemon.sprites.front_default" alt="Pokomon">
+            <h3> {{ pokemon.name }} </h3>
+            <p>
+                <b>Types:</b> {{ pokemon.types[0].type.name }}
+            </p>
+        </div>
+        <div class="load">
+            <div>
+                <button (click)= "page = $event; getMorePokemons()">Load More!</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="pokemon-card-self">
+        <table>
+            <tr>
+                <td>
+                    <img [src]="pokemon_first.sprites.front_default" alt="pokemoNN">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>{{ pokemon_first.name }} #{{pokemon_first.id}} </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>Type</td>
+                <td>{{ pokemon_first.types[0].type.name }}</td>
+            </tr>
+            <tr>
+                <td>{{ pokemon_first.stats[1].stat.name }}</td>
+                <td>{{ pokemon_first.stats[1].base_stat }}</td>
+            </tr>
+            <tr>
+                <td>{{ pokemon_first.stats[2].stat.name }}</td>
+                <td>{{ pokemon_first.stats[2].base_stat }}</td>
+            </tr>
+            <tr>
+                <td>{{ pokemon_first.stats[0].stat.name }}</td>
+                <td>{{ pokemon_first.stats[0].base_stat }}</td>
+            </tr>
+            <tr>
+                <td>{{ pokemon_first.stats[3].stat.name }}</td>
+                <td>{{ pokemon_first.stats[3].base_stat }}</td>
+            </tr>
+            <tr>
+                <td>{{ pokemon_first.stats[4].stat.name }}</td>
+                <td>{{ pokemon_first.stats[4].base_stat }}</td>
+            </tr>
+            <tr>
+                <td>{{ pokemon_first.stats[5].stat.name }}</td>
+                <td>{{ pokemon_first.stats[5].base_stat }}</td>
+            </tr>
+            <tr>
+                <td>Weight</td>
+                <td>{{ pokemon_first.weight}}</td>
+            </tr>
+            <tr>
+                <td>Total Moves</td>
+                <td>{{ pokemon_first.moves.length }}</td>
+            </tr>
+        </table>
+    </div>
+</div>
