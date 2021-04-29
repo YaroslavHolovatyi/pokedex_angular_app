@@ -54,9 +54,9 @@ export class PokemonGridComponent implements OnInit {
   
   pokemon_first = this.pokemons[0];
 
-
   getSpec(pokamon){
     this.pokemon_first = pokamon;
+    console.log(pokamon)
   }
 
 
